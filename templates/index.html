@@ -7,6 +7,71 @@
     <title>Student Marks</title>
 </head>
 <body>
-    Hello gus
+    <form action="/predict" method="post" >
+        <h2 style="color: rgba(193, 40, 13, 0.945); text-align: center;">
+            Hello, Please Select Fields for the Prediction of Student Marks
+        </h2>
+        <h3 style="color: green; text-align: center;">
+            Please Fill Carefully
+        </h3>
+        <label for="gender">Gender</label>
+        <select name="gender" id="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <br>
+        <br>
+
+        <label for="ethinicity"> Race/Ethiniciy</label>
+        <select name="ethinicity" id="ethinicity">
+            <option value="group_a">Group A</option>
+            <option value="group_b">Group B</option>
+            <option value="group_c">Group C</option>
+            <option value="group_d">Group D</option>
+            <option value="group_e">Group E</option>
+        </select>
+        <br>
+        <br>
+
+        <label for="parental_education_level"> Parental Education Level</label>
+        <select name="parental_education_level" id="parental_education_level">
+            <option value="some_collage">Some Collage</option>
+            <option value="associate_degree">Associate's Degree</option>
+            <option value="high_school">High School</option>
+            <option value="some_high_school">Some High School</option>
+            <option value="bachelor_degree">Bacheloer's Degree</option>
+            <option value="master_degree">Master's Degree</option>
+        </select>
+        <br>
+        <br>
+        <label for="lunch">Lunch </label>
+        <select name="lunch" id="lunch">
+            <option value="standard">Standard</option>
+            <option value="free_reduced">Free/Reduced</option>
+        </select>
+        <br>
+        <br>
+        <label for="test_preparation_course">Test Preparation Course</label>
+        <select id="test_preparation_course" name="test_preparation_course">
+            <option value="completed">Completed</option>
+            <option value="none">None</option>
+        </select>
+        <br>
+        <br>
+        <label for="math_score">Math Score</label>
+        <input type="text" id="math_score" name="math_score">
+        <br>
+        <br>
+        <label for="reading_score">Reading Score</label>
+        <input type="text" id="reading_score" name="reading_score">
+        <br>
+        <br>
+        <label for="writing_score">Writing Score</label>
+        <input type="text" id="writing_score" name="writing_score">
+        <br>
+        <br>
+        <label for="submit">Press Submit For Predict the Marks</label>
+        <input type="submit" id="submit" name="predict">
+        </form>
 </body>
 </html>
