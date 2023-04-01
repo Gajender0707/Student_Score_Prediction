@@ -7,7 +7,7 @@ import numpy as np
 app=Flask(__name__)
 
 #load the pickle model
-model=pickle.load(open("Model.pkl","rb"))
+model=pickle.load(open("Model1.pkl","rb"))
 Scaler=StandardScaler()
 
 @app.route("/")
@@ -145,44 +145,25 @@ def prediction():
         elif test_preparation=="none":
                 completed=0
                 none=1
-        
-        math_score=request.form["math_score"]
-        math_score=int(math_score)
-        reading_score=request.form["reading_score"]
-        reading_score=int(reading_score)
-        writing_score=request.form["writing_score"]  
-        writing_score=int(writing_score)  
+         
 
         d={"gender":{"male":male,"female":female},
            "race/ethinicity":{"group_a":group_a,"group_b":group_b,"group_c":group_c,"group_d":group_d,"group_e":group_e},
            "Parental Eduction Level":{"some collage":some_collage,"associates degree":associate_degree,"high school":high_school,
                                       "some high school":some_high_school,"bachelor degree":bachelor_degree,"master degree":master_degree},
             "Lunch":{"standard":standard,"free/reduced":free_reduced},
-            "Test preparation":{"completed":completed,"none":none},
-            "Math score":math_score,
-            "Reading Score":reading_score,
-            "Writing Score":writing_score
+            "Test preparation":{"completed":completed,"none":none}
+
                                       }
-        all_features=[male,female,group_a,group_b,group_c,group_d,group_e,some_collage,associate_degree,high_school,some_high_school,
-                               bachelor_degree,master_degree,standard,free_reduced,completed,none,math_score,reading_score,writing_score]
+                 
         cat_features=[male,female,group_a,group_b,group_c,group_d,group_e,some_collage,associate_degree,high_school,some_high_school,
                                bachelor_degree,master_degree,standard,free_reduced,completed,none]
-        numeric_features=[math_score,reading_score,writing_score]
-        numeric_features=pd.DataFrame(numeric_features)
-        scaled_numeric_values=Scaler.fit_transform(numeric_features)
-        new_numeric_data=[]
-        for i in scaled_numeric_values:
-                new_numeric_data.append(i[0])
-        final_values=cat_features
-        for i in new_numeric_data:
-                final_values.append(i)
 
-        output=model.predict([final_values])
+
+        output=model.predict([cat_features])
         pred=round(output[0],0)
 
-        output1=model.predict([all_features])
-        pred1=round(output1[0],0)
-        return f"This is prediction:{pred} and This is prediction from all features model: {pred1}"
+        return render_template("home.html",pred=pred)
 
 
 if __name__=="__main__":
