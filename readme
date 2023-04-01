@@ -1,1 +1,15 @@
-We will predict the Student score in this model
+End to End Project to predict the Student Marks  .... Steps taken in Project building ...
+
+Collecting data: The first step in Our project is to collect the Student Price data. There are variety of methods such as web scraping, downloading datasets from public sources, or collecting data from sensors or IoT devices and We collected it from the Kaggle ([https://www.kaggle.com/datasets/spscientist/students-performance-in-exams?datasetId=74977])
+
+Data cleaning and pre-processing: Once the data is collected, it needs to be cleaned and pre-processed. This involves removing any irrelevant or missing data, transforming the data into a usable format, and performing any necessary feature engineering. We remove the null values and also extract information using python and also convert object data type according to there data type like int or datetime.
+
+Exploratory data analysis: After the data is cleaned, it's important to perform exploratory data analysis (EDA) to gain insights and identify patterns in the data. This can involve visualizing the data, performing statistical analysis, and creating summary statistics. we create some countplot and bargraph to see the distribution of the category.
+
+Model development: Once the data is pre-processed and EDA is completed, the next step is to develop a machine learning model. This can involve choosing an appropriate algorithm, tuning hyperparameters, and evaluating the model's performance. In this we use the Random Forest with the hyperparameter techqnique RandomSearchCV .
+
+Model deployment: Once the model is developed, it needs to be deployed. This can involve creating a RESTful API using a framework like Flask or Django, and hosting the API on an AWS server. We use the Flask and HTML to develop our website which can be host on AWS server.
+
+Containerization: Containerization is the process of packaging the application and its dependencies into a container that can be run consistently in different environments. In this step we make the requirement.txt which hold the all library which was used by us in this particular project.
+
+Deployment to AWS: The final step is to deploy the All files to an AWS server. This step is done by us using the ubuntu server where we deployed our model using the winSCP to connect the AWS server.
